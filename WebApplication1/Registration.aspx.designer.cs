@@ -22,6 +22,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.TextBox fnameBox;
         
         /// <summary>
+        /// fnameError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal fnameError;
+        
+        /// <summary>
         /// lnameBox control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox lnameBox;
+        
+        /// <summary>
+        /// lnameError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lnameError;
         
         /// <summary>
         /// emailBox control.
@@ -40,6 +58,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.TextBox emailBox;
         
         /// <summary>
+        /// emailError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal emailError;
+        
+        /// <summary>
         /// pwordBox control.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.TextBox pwordBox;
         
         /// <summary>
+        /// pwordError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal pwordError;
+        
+        /// <summary>
         /// confirmpwordBox control.
         /// </summary>
         /// <remarks>
@@ -56,6 +92,15 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox confirmpwordBox;
+        
+        /// <summary>
+        /// confirmpwordError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal confirmpwordError;
         
         /// <summary>
         /// RegisterButton control.
