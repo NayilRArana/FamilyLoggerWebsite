@@ -105,6 +105,7 @@ namespace WebApplication1
                 return false;
             }
         }
+
         protected bool EmailIsValid()
         {
             if (new EmailAddressAttribute().IsValid(emailBox.Text))
@@ -117,12 +118,32 @@ namespace WebApplication1
             }
         }
 
+        protected bool NotAlreadyRegistered()
+        {
+            using (SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nayil\source\repos\WebApplication1\WebApplication1\App_Data\FLDatabase.mdf;Integrated Security=True"))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM users WHERE email = @email", con);
+
+                cmd.Parameters.AddWithValue("email", emailBox.Text);
+                int rowCount = (int)cmd.ExecuteScalar();
+                if (rowCount < 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+        }
         protected void RegisterButton_Click(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nayil\source\repos\WebApplication1\WebApplication1\App_Data\FLDatabase.mdf;Integrated Security=True"))
             {
                 if (FnameBoxNotBlank() && LnameBoxNotBlank() && EmailBoxNotBlank() && PwordBoxNotBlank()
-                    && ConfirmPwordBoxNotBlank() && ConfirmIsEqualToPassword() && PasswordLengthIsRight() && EmailIsValid())
+                    && ConfirmPwordBoxNotBlank() && ConfirmIsEqualToPassword() && PasswordLengthIsRight() && EmailIsValid() && NotAlreadyRegistered())
                 {
                     con.Open();
 
@@ -133,13 +154,8 @@ namespace WebApplication1
                     cmd.Parameters.AddWithValue("password", pwordBox.Text);
                     cmd.ExecuteNonQuery();
                     con.Close();
-
-
-                    fnameBox.Text = "";
-                    lnameBox.Text = "";
-                    emailBox.Text = "";
-                    pwordBox.Text = "";
-                    confirmpwordBox.Text = "";
+                    Session["RegistrationSuccessful"] = true;
+                    Server.Transfer("Login.aspx");
                 }
                 else
                 {
@@ -179,6 +195,10 @@ namespace WebApplication1
                     if (!EmailIsValid() && EmailBoxNotBlank())
                     {
                         emailError.Text = emailError.Text + "Email address must be valid.";
+                    }
+                    if (!NotAlreadyRegistered())
+                    {
+                        emailError.Text = emailError.Text + "You are already registered.";
                     }
                 }
             }
