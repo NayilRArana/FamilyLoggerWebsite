@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication1
+namespace FamilyLoggerWebsite
 {
     public partial class Registration : System.Web.UI.Page
     {
@@ -120,7 +120,7 @@ namespace WebApplication1
 
         protected bool NotAlreadyRegistered()
         {
-            using (SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nayil\source\repos\WebApplication1\WebApplication1\App_Data\FLDatabase.mdf;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection(@"Server=tcp:familylogger.database.windows.net,1433;Initial Catalog=FamilyLogger;Persist Security Info=False;User ID=floggeradmin;Password=Ambergris9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM users WHERE email = @email", con);
@@ -140,7 +140,7 @@ namespace WebApplication1
         }
         protected void RegisterButton_Click(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nayil\source\repos\WebApplication1\WebApplication1\App_Data\FLDatabase.mdf;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection(@"Server=tcp:familylogger.database.windows.net,1433;Initial Catalog=FamilyLogger;Persist Security Info=False;User ID=floggeradmin;Password=Ambergris9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 if (FnameBoxNotBlank() && LnameBoxNotBlank() && EmailBoxNotBlank() && PwordBoxNotBlank()
                     && ConfirmPwordBoxNotBlank() && ConfirmIsEqualToPassword() && PasswordLengthIsRight() && EmailIsValid() && NotAlreadyRegistered())

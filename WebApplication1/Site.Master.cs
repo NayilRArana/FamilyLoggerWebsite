@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
-namespace WebApplication1
+namespace FamilyLoggerWebsite
 {
     public partial class SiteMaster : MasterPage
     {

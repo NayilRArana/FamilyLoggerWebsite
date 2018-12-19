@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 
-namespace WebApplication1
+namespace FamilyLoggerWebsite
 {
     public partial class Login : System.Web.UI.Page
     {
@@ -21,13 +21,13 @@ namespace WebApplication1
 
         protected bool LoginSuccessful()
         {
-            using (SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nayil\source\repos\WebApplication1\WebApplication1\App_Data\FLDatabase.mdf;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection(@"Server=tcp:familylogger.database.windows.net,1433;Initial Catalog=FamilyLogger;Persist Security Info=False;User ID=floggeradmin;Password=Ambergris9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 con.Open();
                 SqlCommand matchCount = new SqlCommand("SELECT COUNT(*) FROM users WHERE email = @email AND password = @password", con);
                 matchCount.Parameters.AddWithValue("email", emailBoxLogin.Text);
                 matchCount.Parameters.AddWithValue("password", pwordBoxLogin.Text);
-                
+
                 int rowCount = (int)matchCount.ExecuteScalar();
                 if (rowCount < 1)
                 {
@@ -43,7 +43,7 @@ namespace WebApplication1
 
         protected void BeginSession()
         {
-            using (SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nayil\source\repos\WebApplication1\WebApplication1\App_Data\FLDatabase.mdf;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection(@"Server=tcp:familylogger.database.windows.net,1433;Initial Catalog=FamilyLogger;Persist Security Info=False;User ID=floggeradmin;Password=Ambergris9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 con.Open();
                 SqlCommand getUserData = new SqlCommand("SELECT * FROM users WHERE email = @email AND password = @password", con);

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1 {
+namespace FamilyLoggerWebsite {
     
     
     public partial class Registration {
