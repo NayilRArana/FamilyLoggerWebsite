@@ -30,6 +30,7 @@ namespace FamilyLoggerWebsite
             {
                 loginLink.Visible = false;
                 registrationLink.Visible = false;
+                downloadLink.Visible = true;
                 logoutButton.Visible = true;
                 welcomeMessage.Visible = true;
 
@@ -40,6 +41,7 @@ namespace FamilyLoggerWebsite
                 registrationLink.Visible = true;
                 logoutButton.Visible = false;
                 welcomeMessage.Visible = false;
+                downloadLink.Visible = false;
 
             }
         }

@@ -31,6 +31,15 @@ namespace FamilyLoggerWebsite {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor registrationLink;
         
         /// <summary>
+        /// downloadLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor downloadLink;
+        
+        /// <summary>
         /// welcomeMessage control.
         /// </summary>
         /// <remarks>

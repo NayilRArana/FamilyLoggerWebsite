@@ -33,7 +33,7 @@
                     </td>  
                 </tr>  
                 <br />
-                <span style = "COLOR: green">
+                <span style = "COLOR: red">
                             <asp:Literal runat='server' id='LoginMessage' Text='' />
                 </span>
             </table>  

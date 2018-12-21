@@ -21,20 +21,7 @@
             <p>
                 Once installed onto your child's PC, our application monitors all keys pressed!
             </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
         </div>
-        <div class="col-md-4">
-            <h2>View reports online</h2>
-            <p>
-                Our website makes it easy to view the keystroke reports wherever you are!
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        
     </div>
 
 </asp:Content>

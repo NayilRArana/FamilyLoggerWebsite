@@ -66,7 +66,7 @@ namespace FamilyLoggerWebsite
             if (LoginSuccessful())
             {
                 BeginSession();
-                Response.Redirect("/Default");
+                Response.Redirect("/Download");
             }
             else
             {
