@@ -18,30 +18,8 @@ namespace FamilyLoggerWebsite
                 registrationMessage.Text = ("Registration successful! Login here.");
             }
         }
-
-        protected bool LoginSuccessful()
-        {
-            using (SqlConnection con = new SqlConnection(@"Server=tcp:familylogger.database.windows.net,1433;Initial Catalog=FamilyLogger;Persist Security Info=False;User ID=floggeradmin;Password=Ambergris9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-            {
-                con.Open();
-                SqlCommand matchCount = new SqlCommand("SELECT COUNT(*) FROM users WHERE email = @email AND password = @password", con);
-                matchCount.Parameters.AddWithValue("email", emailBoxLogin.Text);
-                matchCount.Parameters.AddWithValue("password", pwordBoxLogin.Text);
-
-                int rowCount = (int)matchCount.ExecuteScalar();
-                if (rowCount < 1)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-
-            }
-        }
-
-        protected void BeginSession()
+        
+        protected bool BeginSession()
         {
             using (SqlConnection con = new SqlConnection(@"Server=tcp:familylogger.database.windows.net,1433;Initial Catalog=FamilyLogger;Persist Security Info=False;User ID=floggeradmin;Password=Ambergris9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
@@ -56,17 +34,20 @@ namespace FamilyLoggerWebsite
                     Session["fname"] = reader["fname"].ToString();
                     Session["lname"] = reader["lname"].ToString();
                     Session["email"] = reader["email"].ToString();
-                    
                 }
+                return (bool)Session["loggedIn"];
             }   
         }
 
         protected void LoginButton_Click(object sender, EventArgs e)
         {
-            if (LoginSuccessful())
+            Session["loggedIn"] = false;
+            Session["fname"] = null;
+            Session["lname"] = null;
+            Session["email"] = null;
+            if (BeginSession())
             {
-                BeginSession();
-                Response.Redirect("/Download");
+                Response.Redirect("/Default");
             }
             else
             {
