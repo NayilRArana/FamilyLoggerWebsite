@@ -17,6 +17,8 @@ namespace FamilyLoggerWebsite
             RegisterButton.Click += RegisterButton_Click;
         }
 
+        // FnameBoxNotBlank returns false if the first name textbox on the front end is blank. Returns true otherwise.
+        // FnameBoxNotBlank: None -> Bool
         protected bool FnameBoxNotBlank()
         {
             if (fnameBox.Text == "")
@@ -30,6 +32,8 @@ namespace FamilyLoggerWebsite
 
         }
 
+        // LnameBoxNotBlank returns false if the last name textbox on the front end is blank. Returns true otherwise.
+        // LnameBoxNotBlank: None -> Bool
         protected bool LnameBoxNotBlank()
         {
             if (lnameBox.Text == "")
@@ -43,6 +47,8 @@ namespace FamilyLoggerWebsite
 
         }
 
+        // EmailBoxNotBlank returns false if the email textbox on the front end is blank. Returns true otherwise.
+        // EmailBoxNotBlank: None -> Bool
         protected bool EmailBoxNotBlank()
         {
             if (emailBox.Text == "")
@@ -56,6 +62,8 @@ namespace FamilyLoggerWebsite
 
         }
 
+        // PwordBoxNotBlank returns false if the password textbox on the front end is blank. Returns true otherwise.
+        // PwordBoxNotBlank: None -> Bool
         protected bool PwordBoxNotBlank()
         {
             if (pwordBox.Text == "")
@@ -69,6 +77,8 @@ namespace FamilyLoggerWebsite
 
         }
 
+        // ConfirmPwordBoxNotBlank returns false if the confirm password textbox on the front end is blank. Returns true otherwise.
+        // ConfirmPwordBoxNotBlank: None -> Bool
         protected bool ConfirmPwordBoxNotBlank()
         {
             if (confirmpwordBox.Text == "")
@@ -82,6 +92,8 @@ namespace FamilyLoggerWebsite
 
         }
 
+        // ConfirmIsEqualToPassword returns true if the values in the confirm password and password textboxes are equal. Returns false otherwise.
+        // ConfirmIsEqualToPassword: None -> Bool
         protected bool ConfirmIsEqualToPassword()
         {
             if (confirmpwordBox.Text == pwordBox.Text)
@@ -94,6 +106,8 @@ namespace FamilyLoggerWebsite
             }
         }
 
+        // PasswordLengthIsRight returns true if the length of the value in the password box is between 5 and 20, not inclusive. Returns false otherwise.
+        // PasswordLengthIsRight: None -> Bool
         protected bool PasswordLengthIsRight()
         {
             if ((pwordBox.Text.Length > 5) && (pwordBox.Text.Length < 20))
@@ -106,6 +120,9 @@ namespace FamilyLoggerWebsite
             }
         }
 
+        // EmailIsValid returns true if the value in the email address textbox on the front end is valid.
+        // EmailIsValid: None -> Bool
+        // side effects: creates an instance of an object.
         protected bool EmailIsValid()
         {
             if (new EmailAddressAttribute().IsValid(emailBox.Text))
@@ -118,6 +135,9 @@ namespace FamilyLoggerWebsite
             }
         }
 
+        // NotAlreadyRegistered returns true if the email address in the corresponding textbox cannot found in the database. Returns false otherwise.
+        // NotAlreadyRegistered: None -> Bool
+        // side effects: reads from the Azure database
         protected bool NotAlreadyRegistered()
         {
             using (SqlConnection con = new SqlConnection(@"Server=tcp:familylogger.database.windows.net,1433;Initial Catalog=FamilyLogger;Persist Security Info=False;User ID=floggeradmin;Password=Ambergris9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
@@ -138,6 +158,12 @@ namespace FamilyLoggerWebsite
 
             }
         }
+
+        // RegisterButton_Click checks that no field on the front end is left blank, the password is of an appropriate length, the confirm password box is equal to the
+        //      password box, the email address is valid, and that the user is not already registered. If all of those conditions are satisfied, the user's information
+        //      is pushed to the database. If not, all boxes are cleared and relevant error messages are displayed.
+        // RegisterButton_Click: object EventArgs -> None
+        // side effects: inserts values into the Azure database, mutates session variables, mutates HTML attribues on the front end, redirects to another page
         protected void RegisterButton_Click(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(@"Server=tcp:familylogger.database.windows.net,1433;Initial Catalog=FamilyLogger;Persist Security Info=False;User ID=floggeradmin;Password=Ambergris9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
