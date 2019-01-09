@@ -10,6 +10,9 @@ namespace FamilyLoggerWebsite
 {
     public partial class Login : System.Web.UI.Page
     {
+        // Page_Load may display a message following a successful registration.
+        // Page_Load: object EventArgs -> None
+        // side effects: May mutate an HTML element on the front-end.
         protected void Page_Load(object sender, EventArgs e)
         {
             LoginButton.Click += LoginButton_Click;
@@ -19,6 +22,9 @@ namespace FamilyLoggerWebsite
             }
         }
         
+        // BeginSession logs the user in and returns true if the user can be found. If not, it returns false.
+        // BeginSession: None -> Bool
+        // side effects: reads from a database and mutates session variables
         protected bool BeginSession()
         {
             using (SqlConnection con = new SqlConnection(@"Server=tcp:familylogger.database.windows.net,1433;Initial Catalog=FamilyLogger;Persist Security Info=False;User ID=floggeradmin;Password=Ambergris9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
@@ -39,6 +45,9 @@ namespace FamilyLoggerWebsite
             }   
         }
 
+        // LoginButton_Click logs the user in when the button is clicked and if their information can be found. If not, an error message is displayed.
+        // LoginButton_Click: None -> None
+        // side effects: mutates session variables, redirects, and/or mutates an HTML element on the front-end.
         protected void LoginButton_Click(object sender, EventArgs e)
         {
             Session["loggedIn"] = false;
