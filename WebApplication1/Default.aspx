@@ -16,10 +16,16 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <h2>Monitor keystrokes</h2>
             <p>
                 Once installed onto your child's PC, our application monitors all keys pressed!
+            </p>
+        </div>
+        <div class="col-md-6">
+            <h2>For educational purposes only</h2>
+            <p>
+                Once installed and run, the application remains visible at all times and does not send out any information.
             </p>
         </div>
     </div>
