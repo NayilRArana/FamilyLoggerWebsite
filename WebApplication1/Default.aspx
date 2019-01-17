@@ -7,10 +7,10 @@
         <p class="lead">FamilyLogger is a free parental supervision application for logging activity on your child's PC.</p>
         <div class = "row">
             <div class="col-md-2">
-                <p><a href="/Login" class="btn btn-primary btn-lg">Login &raquo;</a></p>
+                <p><a href="/Login" class="btn btn-primary btn-lg" id="loginButton" runat="server">Login &raquo;</a></p>
             </div>
             <div class = "col-md-2">
-                <p><a href="/Registration" class="btn btn-primary btn-lg">Register &raquo;</a></p>
+                <p><a href="/Registration" class="btn btn-primary btn-lg" id="registrationButton" runat="server">Register &raquo;</a></p>
             </div>
         </div>
     </div>

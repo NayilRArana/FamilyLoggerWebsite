@@ -11,6 +11,16 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["loggedIn"] != null && (bool)Session["loggedIn"] == true)
+            {
+                loginButton.Visible = false;
+                registrationButton.Visible = false;
+            }
+            else
+            {
+                loginButton.Visible = true;
+                registrationButton.Visible = true;
+            }
         }
     }
 }

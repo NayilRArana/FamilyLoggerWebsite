@@ -53,6 +53,7 @@
                         <li><a ID="loginLink" runat="server" href="~/Login">Login</a></li>
                         <li><a ID="registrationLink" runat="server" href="~/Registration">Register</a></li>
                         <li><a ID="downloadLink" runat="server" href="~/Download">Download</a></li>
+                        <li><a ID="reportLink" runat="server" href="~/Report">Report</a></li>
                     </ul>
                 <div class="pull-right">
                     <ul class="nav navbar-nav">
