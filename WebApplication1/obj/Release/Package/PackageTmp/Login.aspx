@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Login" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Login.aspx.cs" Inherits="WebApplication1.Login" %>
+﻿<%@ Page Title="Login" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Login.aspx.cs" Inherits="FamilyLoggerWebsite.Login" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     
@@ -33,7 +33,7 @@
                     </td>  
                 </tr>  
                 <br />
-                <span style = "COLOR: green">
+                <span style = "COLOR: red">
                             <asp:Literal runat='server' id='LoginMessage' Text='' />
                 </span>
             </table>  

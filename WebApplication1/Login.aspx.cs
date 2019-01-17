@@ -11,7 +11,6 @@ namespace FamilyLoggerWebsite
     public partial class Login : System.Web.UI.Page
     {
         // Page_Load may display a message following a successful registration.
-        // Page_Load: object EventArgs -> None
         // side effects: May mutate an HTML element on the front-end.
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,8 +21,7 @@ namespace FamilyLoggerWebsite
             }
         }
         
-        // BeginSession logs the user in and returns true if the user can be found. If not, it returns false.
-        // BeginSession: None -> Bool
+        // BeginSession logs the user in and returns true if the user can be found. If not, it returns false
         // side effects: reads from a database and mutates session variables
         protected bool BeginSession()
         {
@@ -46,7 +44,6 @@ namespace FamilyLoggerWebsite
         }
 
         // LoginButton_Click logs the user in when the button is clicked and if their information can be found. If not, an error message is displayed.
-        // LoginButton_Click: None -> None
         // side effects: mutates session variables, redirects, and/or mutates an HTML element on the front-end.
         protected void LoginButton_Click(object sender, EventArgs e)
         {

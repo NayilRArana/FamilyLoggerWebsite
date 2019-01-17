@@ -11,7 +11,6 @@ namespace FamilyLoggerWebsite
     public partial class SiteMaster : MasterPage
     {
         // EndSession logs the user out.
-        // EndSession: None -> None
         // side effects: mutates session variables
         protected void EndSession()
         {
@@ -22,7 +21,6 @@ namespace FamilyLoggerWebsite
         }
 
         // logoutButton_Click logs the user out when the corresponding button is clicked.
-        // logoutButton_Click: object EventArgs -> None
         // side effects: mutates session variables, redirects to another page
         protected void logoutButton_Click(object sender, EventArgs e)
         {
@@ -31,7 +29,6 @@ namespace FamilyLoggerWebsite
         }
 
         // Page_Load decides which links to show on the navbar depending on login status.
-        // Page_Load: object EventArgs -> None
         // side effects: mutates HTML attributes on the front end.
         protected void Page_Load(object sender, EventArgs e)
         {
