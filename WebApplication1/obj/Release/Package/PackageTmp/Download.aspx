@@ -2,6 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <p>
-        <a href ="/FamilyLogger.zip">Click here</a> to download.
+        <a href ="/FamilyLoggerSetup.zip">Click here</a> to download.
     </p>
 </asp:Content>

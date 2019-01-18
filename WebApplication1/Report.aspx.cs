@@ -24,16 +24,23 @@ namespace FamilyLoggerWebsite
         {
             using (SqlConnection con = new SqlConnection(@"Server=tcp:familylogger.database.windows.net,1433;Initial Catalog=FamilyLogger;Persist Security Info=False;User ID=floggeradmin;Password=Ambergris9;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
-                string report = null;
-                con.Open();
-                SqlCommand getReport = new SqlCommand("SELECT report FROM users WHERE email = @email", con);
-                getReport.Parameters.AddWithValue("email", (string)Session["email"]);
-                SqlDataReader reader = getReport.ExecuteReader();
-                if (reader.Read())
+                try
                 {
-                    report = System.Text.Encoding.Default.GetString((byte[])reader[0]);
+                    string report = null;
+                    con.Open();
+                    SqlCommand getReport = new SqlCommand("SELECT report FROM users WHERE email = @email", con);
+                    getReport.Parameters.AddWithValue("email", (string)Session["email"]);
+                    SqlDataReader reader = getReport.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        report = System.Text.Encoding.Default.GetString((byte[])reader[0]);
+                    }
+                    return report;
                 }
-                return report;
+                catch
+                {
+                    return "";
+                }
             }
         }
         protected void Page_Load(object sender, EventArgs e)
