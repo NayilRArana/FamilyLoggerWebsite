@@ -1,10 +1,10 @@
 # FamilyLoggerWebsite
 
-This is a hosting web app that allows a user to register, login, and download a simple console application that logs keys typed while it is open. The web app part is what's in this repo. This is a side project I made to acquaint myself with the Microsoft stack.
+This is a web app that allows a user to register, login, and download a simple console application that logs keys typed while it is open. The web app part is what's in this repo. This is a side project I made to acquaint myself with the Microsoft stack.
 
 ## Getting Started
 
-You can visit the site by clicking this link: https://familylogger.azurewebsites.net/
+The site was formerly hosted on the cloud with Microsoft Azure, but my free trial ran out. I might deploy it somewhere else later.
 
 ## Highlights
 
